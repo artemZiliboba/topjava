@@ -29,16 +29,15 @@ public class MealServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.debug("redirect to meals");
 
-        List<Meal> meals = Arrays.asList(
-                new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 10, 0), "Завтрак", 500),
-                new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 13, 0), "Обед", 1000),
-                new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 20, 0), "Ужин", 500),
-                new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 0, 0), "Еда на граничное значение", 100),
-                new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 10, 0), "Завтрак", 1000),
-                new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 13, 0), "Обед", 500),
-                new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 20, 0), "Ужин", 410)
+        List<MealTo> meals = Arrays.asList(
+                new MealTo(LocalDateTime.of(2020, Month.JANUARY, 30, 10, 0), "Завтрак", 500, false),
+                new MealTo(LocalDateTime.of(2020, Month.JANUARY, 30, 13, 0), "Обед", 1000, false),
+                new MealTo(LocalDateTime.of(2020, Month.JANUARY, 30, 20, 0), "Курица", 500, false),
+                new MealTo(LocalDateTime.of(2020, Month.JANUARY, 31, 0, 0), "Окрошка", 100, false),
+                new MealTo(LocalDateTime.of(2020, Month.JANUARY, 31, 10, 0), "Шашлык", 5000, true),
+                new MealTo(LocalDateTime.of(2020, Month.JANUARY, 31, 13, 0), "Жрач перед сном", 500, false),
+                new MealTo(LocalDateTime.of(2020, Month.JANUARY, 31, 20, 0), "Ужин", 410, false)
         );
-
 
         request.setAttribute("list", meals);
         //request.setAttribute("test", "My test text");

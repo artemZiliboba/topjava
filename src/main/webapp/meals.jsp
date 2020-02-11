@@ -16,7 +16,14 @@
       <td style="text-align: center;"><span style="color: #ffffff;">Calories</span></td>
     </tr>
     <c:forEach var="mealTo" items="${list}">
-    <tr>
+    <c:set var="varExcess" value="${mealTo.excess}"/>
+        <c:if test="${(varExcess == true)}">
+            <c:set var="varBgColor" value="#e33e2b"/>
+        </c:if>
+        <c:if test="${(varExcess == false)}">
+            <c:set var="varBgColor" value="#5de05c"/>
+        </c:if>
+    <tr bgcolor = ${varBgColor}>
           <td align = center><c:out value="${mealTo.dateTime}"/></td>
           <td><c:out value="${mealTo.description}"/></td>
           <td align = center><c:out value="${mealTo.calories}"/></td>
